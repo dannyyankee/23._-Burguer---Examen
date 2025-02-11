@@ -1,0 +1,320 @@
+:root {
+  --color-white: #fff;
+  --background-color: #e2e2e2;
+  --text-color: #666;
+  --highlight-color: #9c1515d8;
+  --footer-color: #ff3838;
+  --background-footer: #000000ea;
+}
+
+* {
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background-color);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-width: 480px;
+  max-width: 1330px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* Header */
+/* La animación de botón hay que hay que hacer con after o before */
+.header {
+  padding: 0;
+  max-width: 100%;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 6px 6px 6px 6px rgba(196, 194, 194, 0.612);
+}
+
+.header__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+.header__link {
+  width: 50px;
+  font-size: 2rem;
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  font-variant: small-caps;
+}
+
+.header__logo {
+  justify-content: flex-end;
+  color: var(--highlight-color);
+}
+
+.header__text {
+  color: var(--highlight-color);
+}
+
+.fas {
+  display: block;
+}
+
+.nav {
+  max-width: 100%;
+  padding-right: 20px;
+  grid-area: nav;
+}
+
+.nav__items {
+  display: flex;
+}
+
+/* home */
+.home {
+  grid-area: home;
+}
+
+.home__content {
+  margin: 0;
+  padding: 0;
+}
+
+.home__title {
+  font-weight: normal;
+  font-size: 1.8rem;
+  color: var(--highlight-color);
+}
+
+.home__text {
+  text-align: justify;
+  color: var(--text-color);
+  padding-right: 10px;
+}
+
+.home__container-btn {
+  text-align: right;
+  padding-right: 10px;
+}
+
+.home__btn {
+  width: 70px;
+  height: 30px;
+  padding-right: 5px;
+  font-size: 1.1rem;
+  color: var(--highlight-color);
+  border-radius: 2px;
+  border: 1px solid var(--highlight-color);
+}
+.home__image-container {
+  display: none;
+}
+
+/* Especialidades */
+/* Hay que maquetar esta sección con flex y la parte de responsive también debe funcionar con flex */
+.specialitiescontainer {
+  grid-area: specialidades;
+}
+
+.specialitiescontainer__title {
+  text-align: left;
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+.specialitiescontainer__title-color {
+  text-align: left;
+  color: var(--highlight-color);
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+.specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.speciality {
+  position: relative;/*importantisimo relative el padre y absolute el after*/
+  flex: 1 1 280px;
+  border-radius: 5px;
+  box-shadow: 6px 6px 6px 6px rgba(196, 194, 194, 0.612);
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  overflow: hidden;/*ocultar antes del hover */
+}
+.speciality::after {
+  content: "";
+  position: absolute;
+  top: 0;/*indicar la ubicacion de la imagen en este caso*/
+  left: 0;
+  width: 100%;/*parte que ocupará en la pantalla*/
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(-100%); /* Empieza oculta en la parte superior */
+  transition: transform 0.7s ease; /* Transición suave */
+  z-index: 1;
+}
+
+.speciality:hover::after {
+  cursor: pointer;
+  transform: translateY(0); /* Desliza hacia abajo en hover */
+}
+/* Imagen diferente para cada contenedor */
+.speciality:nth-child(1)::after {
+  background-image: url('./../assets/images/s-img-2.jpg');
+}
+
+.speciality:nth-child(2)::after {
+  background-image: url('./../assets/images/s-img-3.jpg');
+}
+
+.speciality:nth-child(3)::after {
+  background-image: url('./../assets/images/s-img-4.jpg');
+}
+
+.speciality:nth-child(4)::after {
+  background-image: url('./../assets/images/s-img-5.jpg');
+}
+
+.speciality:nth-child(5)::after {
+  background-image: url('./../assets/images/s-img-6.jpg');
+}
+
+.speciality__main-img {
+  display: none;
+}
+
+.speciality__content {
+  color: var(--text-color);
+  font-weight: normal;
+}
+
+.speciality__title {
+  font-weight: normal;
+  font-weight: bold;
+}
+
+/* Galería */
+.foodgallery {
+  grid-area: galeria;
+  display: none;
+}
+
+.foodgallery__title {
+  text-align: left;
+  font-weight: normal;
+  font-variant: small-caps;
+  padding-right: 5px;
+}
+
+.foodgallery__title-color {
+  text-align: left;
+  color: var(--highlight-color);
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+.foods {
+  /* Hay que maquetar esta sección con flex y la parte de responsive también debe funcionar con flex */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.food {
+  /* Hay que maquetar esta sección con flex y la parte de responsive también debe funcionar con flex */
+  flex: 1 1 280px;
+  height: 200px;
+  border: 1rem solid var(--color-white);
+  box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .1);
+  border-radius: .5rem;
+}
+
+.food__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+/* Footer */
+
+.footer {
+  grid-area: footer;
+  padding: 1rem 0;
+  background: var(--background-footer);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.footer__social {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer__btn {
+  display: inline-block;
+  width: 115px;
+  padding: 0.25rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: .25rem;
+  position: relative;/*importantisimo padre relative*/
+  text-decoration: none;
+  text-align: center;
+  z-index: 0;
+  border: 1px solid var(--footer-color);
+  color: var(--footer-color);
+  font-weight: 600;
+  overflow: hidden;/*oculta la capa*/
+}
+
+.footer__btn::after {
+  content: "";
+  position: absolute;/*importantisimo hijo absolute*/
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  left: 0;
+  background-color: var(--color-white);
+  z-index: -1;
+  transition: top 0.8s ease;
+}
+
+.footer__btn:hover::after {
+  top: 0;
+}
+
+.footer__btn:hover {
+  color: var(--text-color);
+}
+
+/* !!!!!!Falta la parte de la animación que hay que hacer con after o before !!!!!*/
+
+.footer__text {
+  color: var(--footer-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer__text-ies {
+  color: var(--background-color);
+  font-weight: 600;
+}

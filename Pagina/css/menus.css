@@ -1,0 +1,92 @@
+:root {
+  --color-white: #fff;
+  --background-color: #e2e2e2;
+  --text-color: #666;
+  --highlight-color: #9c1515d8;
+  --footer-color: #ff3838;
+  --background-footer: #000000ea;
+}
+
+.nav {
+  display: none;
+}
+
+.navburgerbutton {
+  font-size: 2rem;
+  cursor: pointer;
+  color: gray;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1.5rem;
+
+}
+
+.nav {
+  display: block;
+  position: absolute;
+  top: -775px;
+  height: 50vh;
+  width: 100%;
+  margin-top: 3rem;
+  z-index: 10;
+  background-color: var(--highlight-color);
+  
+}
+.navAnimacion {
+  display: block; /* Se muestra cuando tiene la animación */
+  opacity: 1;
+  animation: nav 2.5s ease forwards;
+}
+@keyframes chat {
+  from {
+    opacity: 0;
+    transform: translateY(100px); /* Ajuste para un efecto de aparición */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav__items {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.nav__item {
+  width: 100%;
+  text-align: center;
+}
+
+.nav__link {
+  display: block;
+  color: var(--background-color);
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+}
+/*animacion con hover para escalar tamaño fuente*/
+.nav__link:hover {
+  background-color: var(--highlight-color);
+  transform: scale(1.2)
+}
+
+.nav__show {
+  animation-name: shownavburguer;
+  animation-duration: 0.75s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shownavburguer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+
+}
